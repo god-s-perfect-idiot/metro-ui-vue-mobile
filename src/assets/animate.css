@@ -1,0 +1,123 @@
+/* animations */
+
+/* disappear */
+.disappear-enter-active,
+.disappear-leave-active {
+  opacity: 0;
+}
+
+.disappear-enter-from,
+.disappear-leave-to {
+  opacity: 0;
+}
+
+.disappear-enter-to,
+.disappear-leave-from {
+  opacity: 1;
+}
+
+/* fade */
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+
+/* slide-fade */
+.slide-fade-enter-active {
+  transition: all 0.3s ease-out;
+}
+
+.slide-fade-leave-active {
+  transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1);
+}
+
+.slide-fade-enter-from,
+.slide-fade-leave-to {
+  transform: translateX(20px);
+  opacity: 0;
+}
+
+/* slide-down */
+.slide-down-leave-active {
+  transform: translateY(2rem);
+  opacity: 1;
+  transition: all 0.3s ease-out;
+}
+.slide-down-enter-active {
+  transform: translateY(0);
+  opacity: 0;
+  transition: all 0.3s ease-out;
+}
+
+/* slide-up */
+
+.slide-up-leave-active {
+  transform: translateY(-2rem);
+  opacity: 1;
+  transition: all 0.3s ease-out;
+}
+.slide-up-enter-active {
+  transform: translateY(0);
+  opacity: 0;
+  transition: all 0.3s ease-out;
+}
+
+/* appbar-enter */ 
+
+.appbar-enter-leave-active {
+  transform: translateY(-2rem);
+  opacity: 1;
+  transition: all 0.3s ease-out;
+}
+.appbar-enter-enter-active {
+  transform: translateY(0);
+  opacity: 0;
+  transition: all 0.3s ease-out;
+}
+
+/* appbar-exit */
+
+.appbar-exit-leave-active {
+  transform: translateY(2rem);
+  opacity: 1;
+  transition: all 0.3s ease-out;
+}
+.appbar-exit-enter-active {
+  transform: translateY(0);
+  opacity: 0;
+  transition: all 0.3s ease-out;
+}
+
+/* appbaricons-enter */
+
+/* .appbaricons-enter-enter-active {
+  animation: enterFromBottom;
+  animation-duration: 2s;
+} */
+
+.appbaricons-enter-leave-active {
+  transform: translateY(-2rem);
+  opacity: 1;
+  transition: all 0.3s ease-out 0.3s;
+}
+.appbaricons-enter-enter-active {
+  transform: translateY(0);
+  opacity: 0;
+  transition: all 0.3s ease-out;
+}
+
+@keyframes enterFromBottom {
+  0% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
