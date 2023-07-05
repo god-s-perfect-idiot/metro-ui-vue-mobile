@@ -61,7 +61,7 @@ The system creates several new components. That simulates the metro UI effective
 
 The appbar is a component that has app page specific controls. It is a fixed component that is always visible on the bottom of the screen. It is usually circular buttons and can be toggled by tapping on the three dots.
 
-![1688579209459](image/README/1688579209459.png)
+<img src="image/README/1688579209459.png" width="200">
 
 The appbar can accept a list of Objects as its props. Each object should have the following properties:
 ```json
