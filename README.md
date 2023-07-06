@@ -64,6 +64,7 @@ The appbar is a component that has app page specific controls. It is a fixed com
 <img src="image/README/1688579209459.png" width="200">
 
 The appbar can accept a list of Objects as its props. Each object should have the following properties:
+
 ```json
 {
    title: String,
@@ -71,18 +72,35 @@ The appbar can accept a list of Objects as its props. Each object should have th
 }
 ```
 
+### App Title
+
+The app title is a component that displays the title of the app. It is a fixed component that is always visible on the top of the screen. It is usually the name of the app.
+
+<img src="image/README/1688662045059.png" width="200">
+
+The apptitle can accept a string as its props. The string is the title of the app.
+```json
+{
+   title: String,
+}
+```
 
 ##### license
+
 The toolkit is licensed under the GNU GPL v3.0 license. You can find the license in the LICENSE file in the root directory of the project.
 
 ##### Contributing
+
 You can contribute to the project by creating a pull request. Please make sure that you have read the contributing guidelines before creating a pull request.
 
 ##### Issues
+
 You can create an issue in the issues tab. Please make sure that you have read the issue guidelines before creating an issue.
 
 ##### Contact
-You can contact me at [my email](mailto:samarmusthafa2014@gmail.com). 
+
+You can contact me at [my email](mailto:samarmusthafa2014@gmail.com).
 
 ##### Credits
+
 - god-s-perfect-idiot
