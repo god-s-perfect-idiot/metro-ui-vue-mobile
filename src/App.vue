@@ -7,7 +7,9 @@ import AppTitle from './components/fragments/AppTitle.vue'
 
 <template>
   <header>
-    <AppTitle text="Metro UI Vue Mobile"/>
+    <RouterLink to="/">
+      <AppTitle text="Metro UI Vue Mobile"/>
+    </RouterLink>
   </header>
 
   <RouterView />

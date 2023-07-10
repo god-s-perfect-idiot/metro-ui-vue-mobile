@@ -7,24 +7,23 @@
         }
     })
     // classes
-    const appTitle = ref('app-title');
+    const pageTitle = ref('page-title');
 </script>
 
 <template>
-    <div :class="appTitle">
+    <div :class="pageTitle">
         {{ props.text }}
     </div>
 </template>
 
 <style scoped>
-    .app-title {
+    .page-title {
         display: flex;
-        text-align: center;
-        font-size: 0.9rem;
+        font-size: 3rem;
         justify-content: flex-start;
-        text-transform: uppercase;
-        font-weight:600;
-        color: #fff;
-        padding: 0.5rem;
+        text-transform: lowercase;
+        font-weight:200;
+        margin-left: 0.5rem;
+        margin-right: 1rem;
     }
 </style>

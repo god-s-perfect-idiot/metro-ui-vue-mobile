@@ -67,8 +67,8 @@ The appbar can accept a list of Objects as its props. Each object should have th
 
 ```json
 {
-   title: String,
-   route: String,
+   "title": "String",
+   "route": "String",
 }
 ```
 
@@ -79,9 +79,26 @@ The app title is a component that displays the title of the app. It is a fixed c
 <img src="image/README/1688662045059.png" width="200">
 
 The apptitle can accept a string as its props. The string is the title of the app.
+
 ```json
 {
-   title: String,
+   "title": "String",
+}
+```
+
+### Page View [WIP] [NOT WORKING]
+
+This is a container component that is used to display the content of the page. It is a scrollable component that is always visible on the screen. It is usually the content of the page. It can accept any component as its props. The page view component can have multiple page titles and page contents. Everything will be rendered in one dom over multiple `100vw`s. Thus, the page view component is scrollable but snaps to the next page when scrolled.
+
+### Page Title [WIP] [BUGGY]
+
+This is a component that is used to display the title of the page. It is a fixed component that is always visible on the top of the screen. It is usually the title of the page. It can accept a string as its props. It is nested inside the page view component. There can be multiple page titles in a page view. Each page title has the following properties:
+
+<img src="image/README/1689014225110.png" width="200">
+
+```json
+{
+   "title": "String",
 }
 ```
 
