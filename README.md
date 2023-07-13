@@ -86,21 +86,70 @@ The apptitle can accept a string as its props. The string is the title of the ap
 }
 ```
 
-### Page View [WIP] [NOT WORKING]
+### Page View [WIP]
 
 This is a container component that is used to display the content of the page. It is a scrollable component that is always visible on the screen. It is usually the content of the page. It can accept any component as its props. The page view component can have multiple page titles and page contents. Everything will be rendered in one dom over multiple `100vw`s. Thus, the page view component is scrollable but snaps to the next page when scrolled.
 
-### Page Title [WIP] [BUGGY]
+There is a piece of code inside the pageViews that will allow it to switch between pages when the user swipes. Credits: [Rob](https://stackoverflow.com/users/635733/rob)
 
-This is a component that is used to display the title of the page. It is a fixed component that is always visible on the top of the screen. It is usually the title of the page. It can accept a string as its props. It is nested inside the page view component. There can be multiple page titles in a page view. Each page title has the following properties:
+```js
+   let touchEvent:any = null
+    document.addEventListener('touchstart', (event: any) => {
+        touchEvent = new TouchEvent(event)
+    })
+    const handleSwipe = (event: any) => {
+        if (!touchEvent) {
+            return
+        }
+        touchEvent.setEndEvent(event);
+        if (touchEvent.isSwipeLeft()) {
+            // viewPointer = (viewPointer + 1) % views.length 
+            if (viewPointer + 1 > views.length - 1) {
+            } else {
+                viewPointer = viewPointer + 1
+                scrollToView(views[viewPointer])
+            }
+        } else if (touchEvent.isSwipeRight()) {
+            // viewPointer = viewPointer - 1 < 0 ? views.length - 1 : viewPointer - 1
+            if(viewPointer - 1 < 0) {
+            } else {
+                viewPointer = viewPointer - 1
+                scrollToView(views[viewPointer])
+            }
+        }
+    }
+    document.addEventListener('touchend', handleSwipe);
+```
+
+To capture simple gestures, this setup can be reused. I will try to make it into an event or something more efficient in the future.
+
+### Page Title
+
+This is a component that is used to display the title of the page. It is a fixed component that is always visible on the top of the screen. It is usually the title of the page. It can accept a string as its props. It is nested inside the page view component. There can be multiple page titles in a page view.
 
 <img src="image/README/1689014225110.png" width="200">
+
+Each page title has the following properties:
 
 ```json
 {
    "title": "String",
 }
 ```
+
+### Toggle [WIP] [NOT WORKING] [UNANIMATED] [HARDCODED]
+
+This is a component that is used to display a toggle. It is populated as a part of the pageview.
+
+<img src="image/README/1689270403709.png" width="200">
+
+The toggle has the following properties:
+{
+   "title": "String",
+   "description": "String",
+   "boundVariable": "ref-Variable",
+   "assignedValue": "Boolean",
+}
 
 ##### license
 
