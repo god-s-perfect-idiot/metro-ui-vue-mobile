@@ -23,7 +23,6 @@
         justify-content: flex-start;
         text-transform: lowercase;
         font-weight:200;
-        margin-left: 0.5rem;
         margin-right: 1rem;
     }
 </style>

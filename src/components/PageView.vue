@@ -2,6 +2,19 @@
     import { ref } from 'vue'
     import PageTitle from './fragments/PageTitle.vue'
     import TouchEvent from '@/helper-utils/touch-controls';
+    import Toggle from './fragments/Toggle.vue'
+
+    const props = defineProps({
+        tabs: {
+            type: Array as () => {
+                text: string,
+                id: string
+            }[],
+            default: () => [],
+            required: true
+        }
+    })
+
     const scrollToView = (element: string) => {
         const el = document.querySelector(element);
         if (el) {
@@ -10,7 +23,7 @@
         }
     }
 
-    const views = ["#tab-one", '#tab-two', "#tab-three"]
+    const views = props.tabs.map(tab => `#${tab.id}`)
     let viewPointer = 0;
     let touchEvent:any = null
     document.addEventListener('touchstart', (event: any) => {
@@ -42,8 +55,10 @@
 
     // classes
     const tabs = ref('tabs');
-    const tab = ref('tab');
-    const active = ref('#tab-one');
+    const tabClass = ref('tab');
+    const pages = ref('pages');
+
+    const active = ref(views[0]);
     const activeTab = ref('active-tab');
     const passiveTab = ref('passive-tab');
 
@@ -52,18 +67,27 @@
 
 <template>
     <div :class="tabs">
-        <PageTitle :class="[tab, active=='#tab-one' ? activeTab : passiveTab]" text="Main" id="tab-one"/>
-        <PageTitle :class="[tab, active=='#tab-two' ? activeTab : passiveTab]" text="Secondary" id="tab-two" />
-        <PageTitle :class="[tab, active=='#tab-three' ? activeTab : passiveTab]" text="Teritiary" id="tab-three"/>
+        <PageTitle v-for="tab in props.tabs" :class="[tabClass, active==`#${tab.id}` ? activeTab : passiveTab]" :text="tab.text" :id="tab.id"/>
+    </div>
+    <div :class="pages">
+        <Toggle/>
     </div>
 </template>
 
 <style scoped>
+    .pages {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        height: 100%;
+        gap: 2rem;
+        margin-top: 2rem;
+    }
     .active-tab {
         color: #fff;
     }
     .passive-tab {
-        color: #848484;
+        color: var(--secondary-color);
     }
     .tab {
         scroll-snap-align: start;
