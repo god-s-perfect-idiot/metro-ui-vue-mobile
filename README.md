@@ -4,6 +4,10 @@ This project aims to create a mobile first vue project that uses metro-ui based 
 
 This template should help get you started developing with Vue 3 in Vite.
 
+## Figma Designs
+
+The design UI layouts as well as a dump of some templates can be found at the [Figma Sheets](https://www.figma.com/file/7E6FciiywMm9jw7dmP4TaO/Metro-UI-Vue-Mobile?type=design&mode=design&t=EnKAyCobealGafJP-1)
+
 ## Recommended IDE Setup
 
 [VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
