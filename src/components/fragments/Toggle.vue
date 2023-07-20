@@ -141,7 +141,7 @@
 
     .description {
         font-weight: 200;
-        margin-top: 0.6rem;
+        margin-top: var(--title-spacing);
         color: var(--secondary-color);
     }
 

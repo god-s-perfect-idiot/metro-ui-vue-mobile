@@ -3,5 +3,7 @@
     --disabled-color: #4f4f4f;
     --accent-color: #0000c4;
     --grey-fill-color: #CCCCCC;
-    --title-spacing: 0.3rem;
+    --title-spacing: 0.2rem;
+    --page-content-spacing: 1.2rem;
+    --page-content-gap: 1.4rem;
 }

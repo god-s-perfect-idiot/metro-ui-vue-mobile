@@ -86,8 +86,8 @@
         flex-direction: column;
         width: 100%;
         height: 100%;
-        gap: 2rem;
-        margin-top: 2rem;
+        gap: var(--page-content-gap);
+        margin-top: var(--page-content-spacing);
     }
     .active-tab {
         color: #fff;
