@@ -3,6 +3,7 @@
     import PageTitle from './fragments/PageTitle.vue'
     import TouchEvent from '@/helper-utils/touch-controls';
     import Toggle from './fragments/Toggle.vue'
+    import TextBox from './fragments/TextBox.vue';
 
     const props = defineProps({
         tabs: {
@@ -61,7 +62,9 @@
     const active = ref(views[0]);
     const activeTab = ref('active-tab');
     const passiveTab = ref('passive-tab');
-    const toggleValue = ref(true)
+    const toggleValue = ref(true);
+    const initialTextValue = "Anything"
+    const textboxValue = ref(initialTextValue);
 
 </script>
 
@@ -71,13 +74,16 @@
     </div>
     <div :class="pages">
         <Toggle title="Some Toggle" :description="`This is a toggle. The value is dynamically sent from the parent. Current value is ${toggleValue}`" :assignedValue="true" v-model="toggleValue"/>
+        <Toggle title="Disabled Toggle" :description="`This is a disabled toggle.`" :assignedValue="true" :disabled="true"/>
+        <TextBox :title="`Dynamic Title ${textboxValue}`" :initialValue="initialTextValue" v-model="textboxValue"/>
+        <TextBox title="Disabled Title" :initialValue="initialTextValue" :disabled="true"/>
     </div>
 </template>
 
 <style scoped>
     .pages {
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         width: 100%;
         height: 100%;
         gap: 2rem;

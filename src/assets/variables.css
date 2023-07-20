@@ -1,4 +1,7 @@
 :root {
     --secondary-color: #848484;
+    --disabled-color: #4f4f4f;
     --accent-color: #0000c4;
+    --grey-fill-color: #CCCCCC;
+    --title-spacing: 0.3rem;
 }

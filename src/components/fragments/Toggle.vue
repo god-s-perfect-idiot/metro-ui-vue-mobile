@@ -19,6 +19,10 @@
             type: Boolean,
             default: false,
         },
+        disabled: {
+            type: Boolean,
+            default: false
+        }
     })
 
     const status = ref(props.assignedValue);
@@ -32,7 +36,7 @@
 </script>
 
 <template>
-    <div class="toggle">
+    <div v-if="!props.disabled" class="toggle">
         <span class="title">{{ props.title }}</span>
         <div class="status">
             <span class="status-text">{{ status ? 'On' : 'Off' }}</span>
@@ -59,6 +63,21 @@
         </div>
         <span class="description">{{ props.description }}</span>
     </div>
+    <div v-else>
+        <span class="title">{{ props.title }}</span>
+        <div class="status">
+            <span class="status-text-disabled">{{ status ? 'On' : 'Off' }}</span>
+            <div class="status-box disabled" v-if="status">
+                <div class="status-slider">
+                </div>
+            </div>
+            <div class="status-box off" v-else>
+                <div class="status-slider">
+                </div>
+            </div>
+        </div>
+        <span class="description">{{ props.description }}</span>
+    </div>
 </template>
 
 <style scoped>
@@ -75,11 +94,17 @@
         justify-content: space-between;
         align-items: center;
         width: 100%;
-        margin-top: 0.3rem;
+        margin-top: var(--title-spacing);
     }
     .status-text {
         font-size: 1.8rem;
         font-weight: 200;
+    }
+
+    .status-text-disabled {
+        font-size: 1.8rem;
+        font-weight: 200;
+        color: var(--secondary-color)
     }
 
     .status-box {
@@ -99,6 +124,12 @@
         justify-content: flex-end;
         border-right:black;
         background: var(--accent-color);
+    }
+    
+    .disabled {
+        justify-content: flex-end;
+        border-right:black;
+        background: var(--disabled-color);
     }
 
     .status-slider {

@@ -143,21 +143,37 @@ Each page title has the following properties:
 
 ### Toggle [UNANIMATED]
 
-This is a component that is used to display a toggle. It is populated as a part of the pageview.
+This is a component that is used to display a toggle. It is populated as a part of the pageview. It may be disabled on user choice.
 
 <img src="image/README/1689270403709.png" width="200">
 
 The toggle has the following properties:
+
 ```json
 {
    "title": "String",
    "description": "String",
-   "boundVariable": "ref-Variable",
    "assignedValue": "Boolean",
+   "disabled": "Boolean"
 }
 ```
+This is a component that returns a value. The value can be read using `v-model`.
 
-This is a component that returns a value. The value can be read using `v-model`. 
+### TextBox
+
+This is the component that handles the basic text input in the framework. It can have a disabled display-only mode like the toggle.
+
+<img src="image/README/1689871392399.png" width="200">
+
+The TextBox has the following properties: 
+```json
+{
+   "title": "String",
+   "initialValue": "Boolean",
+   "disabled": "Boolean"
+}
+```
+This is a component that returns a value. The value can be read using `v-model`.
 
 ##### license
 
