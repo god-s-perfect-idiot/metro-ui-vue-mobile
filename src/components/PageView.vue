@@ -61,7 +61,7 @@
     const active = ref(views[0]);
     const activeTab = ref('active-tab');
     const passiveTab = ref('passive-tab');
-
+    const toggleValue = ref(true)
 
 </script>
 
@@ -70,7 +70,7 @@
         <PageTitle v-for="tab in props.tabs" :class="[tabClass, active==`#${tab.id}` ? activeTab : passiveTab]" :text="tab.text" :id="tab.id"/>
     </div>
     <div :class="pages">
-        <Toggle/>
+        <Toggle title="Some Toggle" :description="`This is a toggle. The value is dynamically sent from the parent. Current value is ${toggleValue}`" :assignedValue="true" v-model="toggleValue"/>
     </div>
 </template>
 

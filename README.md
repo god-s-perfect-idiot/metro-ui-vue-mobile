@@ -137,19 +137,23 @@ Each page title has the following properties:
 }
 ```
 
-### Toggle [WIP] [NOT WORKING] [UNANIMATED] [HARDCODED]
+### Toggle [UNANIMATED]
 
 This is a component that is used to display a toggle. It is populated as a part of the pageview.
 
 <img src="image/README/1689270403709.png" width="200">
 
 The toggle has the following properties:
+```json
 {
    "title": "String",
    "description": "String",
    "boundVariable": "ref-Variable",
    "assignedValue": "Boolean",
 }
+```
+
+This is a component that returns a value. The value can be read using `v-model`. 
 
 ##### license
 

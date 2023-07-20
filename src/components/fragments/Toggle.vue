@@ -1,24 +1,42 @@
 <script setup lang="ts">
     import { ref } from 'vue'
     
-    const status = ref('Off');
+
+    const props = defineProps({
+        title: {
+            type: String,
+            required: true,
+        },
+        description: {
+            type: String,
+            required: true,
+        },
+        assignedValue: {
+            type: Boolean,
+            default: false,
+        },
+        modelValue: {
+            type: Boolean,
+            default: false,
+        },
+    })
+
+    const status = ref(props.assignedValue);
+    const emit = defineEmits(['update:modelValue'])
 
     const toggle = () => {
-        if (status.value === 'Off') {
-            status.value = 'On'
-        } else {
-            status.value = 'Off'
-        }
+        status.value = !status.value;
+        emit('update:modelValue', status.value)
     }
-
+    
 </script>
 
 <template>
     <div class="toggle">
-        <span class="title">The Toggle Title</span>
+        <span class="title">{{ props.title }}</span>
         <div class="status">
-            <span class="status-text">{{ status }}</span>
-            <div class="status-box on" v-if="status === 'On'" @click="toggle">
+            <span class="status-text">{{ status ? 'On' : 'Off' }}</span>
+            <div class="status-box on" v-if="status" @click="toggle">
                 <div class="status-slider">
                 </div>
             </div>
@@ -39,7 +57,7 @@
                     </div>
                 </Transition> -->
         </div>
-        <span class="description">Click the Toggle to change the status</span>
+        <span class="description">{{ props.description }}</span>
     </div>
 </template>
 
