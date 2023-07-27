@@ -1,9 +1,8 @@
 <script setup lang="ts">
     import { ref } from 'vue'
     import PageTitle from './fragments/PageTitle.vue'
+    import PageContent from './PageContent.vue'
     import TouchEvent from '@/helper-utils/touch-controls';
-    import Toggle from './fragments/Toggle.vue'
-    import TextBox from './fragments/TextBox.vue';
 
     const props = defineProps({
         tabs: {
@@ -11,6 +10,11 @@
                 text: string,
                 id: string
             }[],
+            default: () => [],
+            required: true
+        },
+        pages: {
+            type: Array as () => string[],
             default: () => [],
             required: true
         }
@@ -25,6 +29,8 @@
     }
 
     const views = props.tabs.map(tab => `#${tab.id}`)
+    const pageList = props.pages
+
     let viewPointer = 0;
     let touchEvent:any = null
     document.addEventListener('touchstart', (event: any) => {
@@ -36,18 +42,22 @@
         }
         touchEvent.setEndEvent(event);
         if (touchEvent.isSwipeLeft()) {
+            // circular navigation
             // viewPointer = (viewPointer + 1) % views.length 
             if (viewPointer + 1 > views.length - 1) {
             } else {
                 viewPointer = viewPointer + 1
                 scrollToView(views[viewPointer])
+                activePage.value = pageList[viewPointer]
             }
         } else if (touchEvent.isSwipeRight()) {
+            // circular navigation
             // viewPointer = viewPointer - 1 < 0 ? views.length - 1 : viewPointer - 1
             if(viewPointer - 1 < 0) {
             } else {
                 viewPointer = viewPointer - 1
                 scrollToView(views[viewPointer])
+                activePage.value = pageList[viewPointer]
             }
         }
     }
@@ -57,14 +67,10 @@
     // classes
     const tabs = ref('tabs');
     const tabClass = ref('tab');
-    const pages = ref('pages');
-
     const active = ref(views[0]);
+    const activePage = ref(pageList[0]);
     const activeTab = ref('active-tab');
     const passiveTab = ref('passive-tab');
-    const toggleValue = ref(true);
-    const initialTextValue = "Anything"
-    const textboxValue = ref(initialTextValue);
 
 </script>
 
@@ -73,22 +79,17 @@
         <PageTitle v-for="tab in props.tabs" :class="[tabClass, active==`#${tab.id}` ? activeTab : passiveTab]" :text="tab.text" :id="tab.id"/>
     </div>
     <div :class="pages">
-        <Toggle title="Some Toggle" :description="`This is a toggle. The value is dynamically sent from the parent. Current value is ${toggleValue}`" :assignedValue="true" v-model="toggleValue"/>
-        <Toggle title="Disabled Toggle" :description="`This is a disabled toggle.`" :assignedValue="true" :disabled="true"/>
-        <TextBox :title="`Dynamic Title ${textboxValue}`" :initialValue="initialTextValue" v-model="textboxValue"/>
-        <TextBox title="Disabled Title" :initialValue="initialTextValue" :disabled="true"/>
+    </div>
+    <div v-for="page in props.pages">
+        <PageContent v-if="activePage === page">
+            <slot :name=page>
+            </slot>
+        </PageContent>
     </div>
 </template>
 
 <style scoped>
-    .pages {
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-        height: 100%;
-        gap: var(--page-content-gap);
-        margin-top: var(--page-content-spacing);
-    }
+    
     .active-tab {
         color: #fff;
     }
