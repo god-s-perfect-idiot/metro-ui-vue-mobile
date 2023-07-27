@@ -69,7 +69,7 @@ The appbar is a component that has app page specific controls. It is a fixed com
 
 The appbar can accept a list of Objects as its props. Each object should have the following properties:
 
-```json
+```ts
 {
     "iconButtons"?: [
         {
@@ -94,7 +94,7 @@ The app title is a component that displays the title of the app. It is a fixed c
 
 The apptitle can accept a string as its props. The string is the title of the app.
 
-```json
+```ts
 {
    "text"!: "String",
 }
@@ -151,7 +151,7 @@ This is a named-slotted component where the slot names must match with those pro
 
 The following props are available for the page view:
 
-```json
+```ts
 {
    "tabs"!: [
          {
@@ -227,7 +227,7 @@ This is a component that is used to display the title of the page. It is a fixed
 
 Each page title has the following properties:
 
-```json
+```ts
 {
    "text"!: "String",
 }
@@ -247,7 +247,7 @@ This is a component that is used to display a toggle. It is populated as a part 
 
 The toggle has the following properties:
 
-```json
+```ts
 {
    "title"!: "String",
    "description"!: "String",
@@ -273,7 +273,7 @@ This is the component that handles the basic text input in the framework. It can
 
 The TextBox has the following properties:
 
-```json
+```ts
 {
    "title"!: "String",
    "initialValue"?: "Boolean",
