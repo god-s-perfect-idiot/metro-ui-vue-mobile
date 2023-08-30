@@ -2,6 +2,8 @@
   import PageView from '../components/PageView.vue';
   import Toggle from '../components/fragments/Toggle.vue';
   import TextBox from '../components/fragments/TextBox.vue';
+  import ImageTextSmall from '../components/fragments/ImageTextSmall.vue';
+  import Title from '../components/fragments/Title.vue';
   import {ref} from 'vue';
 
   const toggleValue = ref(true);
@@ -42,6 +44,8 @@
         </template>
         <template v-slot:page-two>
           <TextBox :title="`Dynamic Title in Page Two ${textboxPageTwoValue}`" :initialValue="initialTextValue" v-model="textboxPageTwoValue"/>    
+          <Title text="This is a section title"/>
+          <ImageTextSmall title="Main Title" description="This is what a description is going to look like" imgURL="https://picsum.photos/200/300"/>
         </template>
         <template v-slot:page-three>
         </template>

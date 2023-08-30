@@ -146,3 +146,12 @@
     opacity: 1;
   }
 }
+
+.waterfall-enter-active, .waterfall-leave-active {
+  transition: transform 0.3s;
+}
+
+.waterfall-enter, .waterfall-leave-to /* .waterfall-leave-active in <2.1.8 */ {
+  transform: translateX(-100%);
+  opacity: 0;
+}

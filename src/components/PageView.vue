@@ -80,12 +80,14 @@
     </div>
     <div :class="pages">
     </div>
-    <div v-for="page in props.pages">
-        <PageContent v-if="activePage === page">
-            <slot :name=page>
-            </slot>
-        </PageContent>
-    </div>
+    <TransitionGroup name="waterfall">
+        <div v-for="page in props.pages">
+            <PageContent v-if="activePage === page">
+                <slot :name=page>
+                </slot>
+            </PageContent>
+        </div>
+    </TransitionGroup>
 </template>
 
 <style scoped>

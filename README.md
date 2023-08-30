@@ -291,6 +291,48 @@ An invocation will be of the form:
     <TextBox title="TextBox" v-model="textBoxValue" initialValue="Initial Value"/>
 ```
 
+### Image Description
+
+This is a clickable link with an image, title and text descriptors.
+
+<img src="image/README/1693434490475.png" width="200">
+
+It has the following properties:
+
+```ts
+{
+   "title"!: "String",
+   "description"!: "String",
+   "imageURL"!: "String",
+}
+```
+
+An invocation will be of the form:
+
+```html
+    <ImageDescription title="Image Description" description="This is an image description" imageURL="https://picsum.photos/200/300"/>
+```
+
+### Title 
+
+This is a simple section title that can be used as a divider
+
+<img src="image/README/1693434490475.png" width="200">
+
+It has the following properties:
+
+```ts
+{
+   "title"!: "String",
+}
+```
+
+A simple invocation will be of the form:
+
+```html
+    <Title title="Title"/>
+```
+
 ##### license
 
 The toolkit is licensed under the GNU GPL v3.0 license. You can find the license in the LICENSE file in the root directory of the project.
